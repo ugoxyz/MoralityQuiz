@@ -5,40 +5,47 @@ import { QuizContext } from "../extras/Contexts";
 function MainQuiz() {
   const { score, setScore, setGameState } = useContext(QuizContext);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [optionSelect, setOptionSelect] = useState("");
 
-  // Conditions for addition and substraction Currently wrong!!!! FIXME:
+  const handleClick = (pillType) => () => {
+    //check selected pill
+    if (currentQuestion === Questions.length - 1) {
+      // setScore(score)
+      setGameState("end");
+      // return;
+    }
 
-  const nextQuestion = () => {
-    setScore(score + 10);
+    // console.log(score);
+    if (pillType === "red") {
+      setScore(score - 1);
+      // setCurrentQuestion(currentQuestion + 1);
+    }
+
+    if (pillType === "blue") {
+      setScore(score + 1);
+      // console.log(score);
+    }
     setCurrentQuestion(currentQuestion + 1);
   };
 
-  //add randomizer TODO:
+  // const nextQuestion = (pillType) => {
+  //   if (pillType === "blue") {
+  //     setScore(score + 10);
+  //     console.log("babalue");
+  //   }
 
-  const handleAns = (userAns) => {
-    if (userAns === optionSelect) {
-      setScore(score + 1);
-    }
-  };
-
-  //FIXME:
-
-  const finishQuiz = () => {
-    //please revise conditional
-    if (optionSelect === Questions[currentQuestion].good) {
-      console.log("away");
-      setScore(score + 10);
-    } else if (Questions[currentQuestion].evil === optionSelect) {
-      setScore(score - 1);
-    }
-    setGameState("end");
-  };
-
-  const lastQuestion = () => {
-    nextQuestion();
-    finishQuiz();
-  };
+  //  // if (pillType === "red") {
+  //   //   setScore(score + 10);
+  //   //   console.log("babalue");
+  //   //
+  //   // }
+  //   // if (
+  //   //   pillType === "blue" &&
+  //   //   currentQuestion === Questions[currentQuestion].length - 1
+  //   // ) {
+  //   // }
+  //   // setCurrentQuestion(currentQuestion + 1);
+  //   // setGameState("end");
+  // };
 
   return (
     <div className="main">
@@ -48,53 +55,18 @@ function MainQuiz() {
         <div> OR </div>
         <div>{Questions[currentQuestion].badprompt}</div>
       </section>
-      <div className="answers"></div>
-      {/* */}
-      {currentQuestion === Questions.length - 1 ? (
+      <div className="answers">
+        {/* */}
         <div>
-          <button
-            className="left"
-            onClick={() => {
-              lastQuestion();
-              setOptionSelect("good");
-            }}
-          >
+          <button className="left" onClick={handleClick("red")}>
             Red pill
           </button>
 
-          <button
-            className="right"
-            onClick={() => {
-              lastQuestion();
-              setOptionSelect("evil");
-            }}
-          >
+          <button className="right" onClick={handleClick("blue")}>
             Blue pill
           </button>
         </div>
-      ) : (
-        <div>
-          <button
-            className="left"
-            onClick={() => {
-              nextQuestion();
-              setOptionSelect("evil");
-            }}
-          >
-            Red pill
-          </button>
-
-          <button
-            className="right"
-            onClick={() => {
-              nextQuestion();
-              setOptionSelect("evil");
-            }}
-          >
-            Blue pill
-          </button>
-        </div>
-      )}
+      </div>
     </div>
   );
 }
