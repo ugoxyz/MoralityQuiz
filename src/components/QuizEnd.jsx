@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { QuizContext } from "../extras/Contexts";
 
 function QuizEnd() {
@@ -12,19 +12,29 @@ function QuizEnd() {
   const renderColor = () => {
     if (score <= 4) {
       return "red";
-    }else if(score <= 7){
-return "purple"
-    }else{
-      return "blue"
+    } else if (score <= 7) {
+      return "purple";
+    } else {
+      return "blue";
     }
   };
+
+  useEffect(() => {
+    const element = document.getElementById("tow");
+    element.style.backgroundColor = "red";
+    element.style.padding="50px";
+    element.style.borderRadius="20px";
+    element.style.margin ="20px"
+    
+  }, []);
 
   return (
     <div className="end">
       <h1>End of Quiz</h1>
-
-      <h3 style={{color: renderColor()}}>{score}</h3>
-      <button onClick={restartQuiz}>Start Again</button>
+      <div id="tow" onClick={renderColor}>{score}</div>
+      <button className="start-button" onClick={restartQuiz}>
+        Start Again
+      </button>
     </div>
   );
 }

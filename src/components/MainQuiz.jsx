@@ -1,12 +1,14 @@
 import React, { useContext, useState } from "react";
 import Questions from "../extras/QuestionBank";
 import { QuizContext } from "../extras/Contexts";
+import "./MainQuiz.css";
+import { motion } from "framer-motion";
 
 function MainQuiz() {
   const { score, setScore, setGameState } = useContext(QuizContext);
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
-  const handleClick = (pillType) => () => {
+  const handleClick = (pillType) => () => setTimeout (()=>{
     //check selected pill
     if (currentQuestion === Questions.length - 1) {
       // setScore(score)
@@ -25,7 +27,8 @@ function MainQuiz() {
       // console.log(score);
     }
     setCurrentQuestion(currentQuestion + 1);
-  };
+    
+  }, 800);
 
   // const nextQuestion = (pillType) => {
   //   if (pillType === "blue") {
@@ -48,26 +51,30 @@ function MainQuiz() {
   // };
 
   return (
-    <div className="main">
-      <section className="question-card">
-        {" "}
-        <div>{Questions[currentQuestion].goodprompt}</div>
-        <div> OR </div>
-        <div>{Questions[currentQuestion].badprompt}</div>
-      </section>
-      <div className="answers">
-        {/* */}
-        <div>
-          <button className="left" onClick={handleClick("red")}>
-            Red pill
-          </button>
 
-          <button className="right" onClick={handleClick("blue")}>
-            Blue pill
-          </button>
+      <motion.div className="main" initial={{opacity: 0}}
+      animate={{opacity: 1}} exit={{opacity: 0}}
+      >
+      <h1 className="main-question">{Questions[currentQuestion].dilemma}</h1>
+      <section className="question-card">
+        
+        {" "}
+        <div className="left button" onClick={handleClick("red")}>
+          {Questions[currentQuestion].good}
         </div>
-      </div>
-    </div>
+                <div className="right button" onClick={handleClick("blue")}>
+          {Questions[currentQuestion].evil}
+        </div>
+      </section>
+      {/* <div className="answers">
+        
+        <div>
+          <button className="left" onClick={handleClick("red")}></button>
+
+          <button className="right" onClick={handleClick("blue")}></button>
+        </div>
+      </div> */}
+    </motion.div>
   );
 }
 
