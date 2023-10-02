@@ -18,3 +18,12 @@ body{
     box-shadow: 2px 1px 10px 2px #0a0a1a;
      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
+.reveal-button{
+  padding: 20px;
+  font-size: 1.1em;
+  border-radius: 2em;
+  border: none;
+  box-shadow: 2px 1px 10px 2px #0a0a1a;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

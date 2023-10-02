@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "framer-motion": "^10.16.4",
     "react": "^18.2.0",
+    "react-card-flip": "^1.2.2",
     "react-card-rotate-swiper": "^0.0.14",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
