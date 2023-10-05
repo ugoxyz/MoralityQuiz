@@ -12,7 +12,7 @@ function QuizEnd() {
   //FIXME: not working
 
   const renderColor = () => {
-    let textColor = "red",
+    let textColor = "pink",
       failColor = "purple";
     // message = document.getElementById("side-two").textContent = "hello";
 
@@ -64,14 +64,17 @@ function QuizEnd() {
           <div id="side-one" style={{ color: renderColor() }}>
             <button
               style={{
+                background: "#a3f1fa40",
+                boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.3)",
+                backdropFilter: "blur(4px)",
                 width: "250px",
                 margin: "20px",
                 height: "250px",
                 padding: "10px",
                 fontSize: "20px",
-                background: "#f5d9fa",
                 fontWeight: "bold",
                 borderRadius: "20px",
+                color: "white",
               }}
               onClick={() => setFlip(!flip)}
             >
@@ -81,12 +84,14 @@ function QuizEnd() {
           <div id="side-two">
             <button
               style={{
+                background: "#a3f1fa40",
+                boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.3)",
+                backdropFilter: "blur(4px)",
                 width: "250px",
                 height: "250px",
                 margin: "20px",
                 padding: "10px",
                 fontSize: "20px",
-                background: "#f5d9fa",
                 fontWeight: "bold",
                 borderRadius: "20px",
                 color: renderColor(),

@@ -26,4 +26,8 @@ body{
   border: none;
   box-shadow: 2px 1px 10px 2px #0a0a1a;
    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   background: rgba(230, 35, 48, 0.25);
+   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
+   backdrop-filter: blur(4px);
+   -webkit-backdrop-filter: blur(4px);
 }

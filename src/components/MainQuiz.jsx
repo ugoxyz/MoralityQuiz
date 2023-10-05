@@ -35,15 +35,15 @@ function MainQuiz() {
       exit={{ opacity: 0 }}
     >
       <h1 className="main-question">{Questions[currentQuestion].dilemma}</h1>
-      <section className="question-card">
-        {" "}
+      <div className="question-card">
+   
         <div className="left button" onClick={handleClick("red")}>
           {Questions[currentQuestion].good}
         </div>
         <div className="right button" onClick={handleClick("blue")}>
           {Questions[currentQuestion].evil}
         </div>
-      </section>
+      </div>
     </motion.div>
   );
 }
