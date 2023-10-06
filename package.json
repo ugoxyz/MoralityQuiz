@@ -10,8 +10,13 @@
     "react": "^18.2.0",
     "react-card-flip": "^1.2.2",
     "react-card-rotate-swiper": "^0.0.14",
+    "react-confetti": "^6.1.0",
+    "react-confetti-explosion": "^2.1.2",
+    "react-d3-speedometer": "^1.1.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "react-social-icons": "^6.4.0",
+    "react-use": "^17.4.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

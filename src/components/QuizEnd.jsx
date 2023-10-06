@@ -1,20 +1,21 @@
 import React, { useContext, useState } from "react";
 import { QuizContext } from "../extras/Contexts";
 import ReactCardFlip from "react-card-flip";
-import Spinner from "../extras/Spinner";
+
+import ReactSpeedometer from "react-d3-speedometer";
+import useWindowSize from "react-use/lib/useWindowSize";
+import Confetti from "react-confetti";
+import Unlock from "./unlock.png";
+import "./QuizEnd.css";
 
 function QuizEnd() {
   const { score, setScore, setGameState } = useContext(QuizContext);
   const [flip, setFlip] = useState(false);
-  const [loading, setLoading] = useState(true);
-  // const [message, setMessage] = useState("");
-
-  //FIXME: not working
+  const { width, height } = useWindowSize();
 
   const renderColor = () => {
     let textColor = "pink",
       failColor = "purple";
-    // message = document.getElementById("side-two").textContent = "hello";
 
     if (score <= 4) {
       return textColor;
@@ -25,99 +26,109 @@ function QuizEnd() {
     }
   };
 
-  // const renderResponse = () => {
-  //   let message = (document.getElementById("side-one").innerHTML =
-  //     "<div>You failed</div>");
-  //   if (score <= 4) {
-  //     return message;
-  //   }
-
-  //   if (score >= 7) {
-  //     return "You are going to hell";
-  //   }
-
-  //   setFlip(flip);
-  // };
-  //TODO:
-
-  // useEffect(() => {
-  //   const element = document.getElementById("untow");
-  //   element.style.backgroundColor = "white";
-  //   element.style.padding = "100px";
-  //   element.style.borderRadius = "20px";
-  //   element.style.margin = "20px";
-
-  //   setScore(score);
-  // }, []);
-
   const restartQuiz = () => {
     setScore(0);
     setGameState("menu");
-    setLoading();
   };
 
-  if (loading) {
-    return (
-      <div className="end">
-        <h1>End of Quiz</h1>
-        <ReactCardFlip isFlipped={flip} flipDirection="horizontal">
-          <div id="side-one" style={{ color: renderColor() }}>
-            <button
-              style={{
-                background: "#a3f1fa40",
-                boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.3)",
-                backdropFilter: "blur(4px)",
-                width: "250px",
-                margin: "20px",
-                height: "250px",
-                padding: "10px",
-                fontSize: "20px",
-                fontWeight: "bold",
-                borderRadius: "20px",
-                color: "white",
-              }}
-              onClick={() => setFlip(!flip)}
-            >
-              Your score is: {score}{" "}
-            </button>
-          </div>
-          <div id="side-two">
-            <button
-              style={{
-                background: "#a3f1fa40",
-                boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.3)",
-                backdropFilter: "blur(4px)",
-                width: "250px",
-                height: "250px",
-                margin: "20px",
-                padding: "10px",
-                fontSize: "20px",
-                fontWeight: "bold",
-                borderRadius: "20px",
-                color: renderColor(),
-              }}
-              onClick={() => {
-                setFlip(!flip);
-              }}
-            >
-              You are
-            </button>
-          </div>
-        </ReactCardFlip>
+  const revealScore = () => {
+    
+    if (score < 10) {
+      return "You are a model citizen";
+    }
+    if (score > 15) {
+      return "Your moral compass is broken";
+    }
+  };
 
-        <button className="start-button" onClick={restartQuiz}>
-          Start Again
-        </button>
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <img src="spinner.gif" alt="spinner" />
-        <Spinner size={30}></Spinner>
-      </div>
-    );
-  }
+  return (
+    <div className="end">
+      <Confetti
+        width={width}
+        numberOfPieces={200}
+        recycle={false}
+        height={height}
+      />
+      <ReactCardFlip isFlipped={flip} flipDirection="horizontal">
+        <div
+          id="side-one flipcard"
+          style={{
+            color: renderColor(),
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+              background: "rgba(163, 241, 250, 0.1)",
+              boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.3)",
+              backdropFilter: "blur(4px)",
+              cursor: "pointer",
+              width: "300px",
+              margin: "20px",
+              height: "300px",
+              padding: "10px",
+              fontSize: "20px",
+              fontWeight: "bold",
+              borderRadius: "20px",
+              color: "white",
+            }}
+            onClick={() => {
+              setFlip(!flip);
+            }}
+          >
+            <img src={Unlock} alt="key" width={100} />
+            REVEAL RESULT
+          </div>
+        </div>
+        <div id="side-two">
+          <div
+            style={{
+              background: "rgba(163, 241, 250, 0.05)",
+              boxShadow: "0 8px 10px 0 rgba(131, 38, 135, 0.3)",
+              backdropFilter: "blur(4px)",
+              width: "300px",
+              height: "300px",
+              margin: "20px",
+              padding: "10px",
+              fontSize: "20px",
+              fontWeight: "bold",
+              borderRadius: "20px",
+              cursor: "pointer",
+              color: renderColor(),
+            }}
+            onClick={() => {
+              setFlip(!flip);
+            }}
+          >
+            <div className="speedo">
+              <ReactSpeedometer
+                maxValue={40}
+                maxSegmentLabels={0}
+                value={score + 20}
+                needleColor="white"
+                startColor="green"
+                segments={40}
+                endColor="red"
+                width={300}
+                needleTransitionDuration={9999}
+                needleTransition="easeElastic"
+                textColor="white"
+                ringWidth={75}
+                paddingVertical={10}
+                currentValueText={revealScore()}
+              />
+            </div>
+            <button className="start-button" onClick={restartQuiz}>
+              Start Again
+            </button>
+          </div>
+        </div>
+      </ReactCardFlip>
+    </div>
+  );
 }
 
 export default QuizEnd;

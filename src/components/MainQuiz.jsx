@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import Questions from "../extras/QuestionBank";
 import { QuizContext } from "../extras/Contexts";
 import "./MainQuiz.css";
-import { motion } from "framer-motion";
 
 function MainQuiz() {
   const { score, setScore, setGameState } = useContext(QuizContext);
@@ -28,15 +27,9 @@ function MainQuiz() {
     }, 800);
 
   return (
-    <motion.div
-      className="main"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+    <div className="main">
       <h1 className="main-question">{Questions[currentQuestion].dilemma}</h1>
       <div className="question-card">
-   
         <div className="left button" onClick={handleClick("red")}>
           {Questions[currentQuestion].good}
         </div>
@@ -44,7 +37,7 @@ function MainQuiz() {
           {Questions[currentQuestion].evil}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
