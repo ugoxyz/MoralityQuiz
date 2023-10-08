@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { QuizContext } from "../extras/Contexts";
 import ReactCardFlip from "react-card-flip";
 
-import ReactSpeedometer from "react-d3-speedometer";
+// import ReactSpeedometer from "react-d3-speedometer";
 import useWindowSize from "react-use/lib/useWindowSize";
 import Confetti from "react-confetti";
 import Unlock from "./unlock.png";
@@ -104,7 +104,7 @@ function QuizEnd() {
             }}
           >
             <div className="speedo">
-              <ReactSpeedometer
+              {/* <ReactSpeedometer
                 maxValue={40}
                 maxSegmentLabels={0}
                 value={score + 20}
@@ -119,7 +119,8 @@ function QuizEnd() {
                 ringWidth={75}
                 paddingVertical={10}
                 currentValueText={revealScore()}
-              />
+              /> */}
+              {revealScore()}
             </div>
             <button className="start-button" onClick={restartQuiz}>
               Start Again

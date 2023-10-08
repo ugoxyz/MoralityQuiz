@@ -28,9 +28,10 @@ body {
 
 .speedo{
   display: flex;
+  height: 100%;
   align-items: center;
   justify-content: center;
-  margin-top: 50px;
+  margin:auto
 
 }
 
