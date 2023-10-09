@@ -6,8 +6,8 @@
     justify-content: center;
     flex-direction: column;
     font-weight: lighter;
-    font-family: 'Courier New', Courier, monospace;
     height: 100vh;
+    font-family:'Courier New', Courier, monospace;
 }
 
 .question-card {
@@ -15,10 +15,10 @@
     align-items: center;
     justify-content: center;
     flex-direction: row;
-       font-family: 'Courier New', Courier, monospace;
     height: 400px;
     width: 400px;
     border-radius: 20px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     
 
 }
@@ -33,6 +33,8 @@
     border-radius: 10px;
     color: white;
     padding: 30px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
 }
 
 .main-question::before {

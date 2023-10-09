@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { QuizContext } from "../extras/Contexts";
 import ReactCardFlip from "react-card-flip";
-
+import GaugeChart from "react-gauge-chart";
 // import ReactSpeedometer from "react-d3-speedometer";
 import useWindowSize from "react-use/lib/useWindowSize";
 import Confetti from "react-confetti";
@@ -32,11 +32,13 @@ function QuizEnd() {
   };
 
   const revealScore = () => {
-    
-    if (score < 10) {
+    if (score <= 7) {
       return "You are a model citizen";
     }
-    if (score > 15) {
+    if (score > 7 && score < 14) {
+      return "You are living on the edge";
+    }
+    if (score > 14) {
       return "Your moral compass is broken";
     }
   };
@@ -104,6 +106,17 @@ function QuizEnd() {
             }}
           >
             <div className="speedo">
+              <GaugeChart
+                arcPadding={0}
+                nrOfLevels={100}
+                percent={(score + 20)/40}
+                id="gauge-chart1"
+                needleColor="#fff"
+                hideText="false"
+                animate="true"
+                animateDuration={10000}
+                cornerRadius={0}
+              />
               {/* <ReactSpeedometer
                 maxValue={40}
                 maxSegmentLabels={0}
@@ -119,8 +132,8 @@ function QuizEnd() {
                 ringWidth={75}
                 paddingVertical={10}
                 currentValueText={revealScore()}
-              /> */}
-              {revealScore()}
+              /> */}<div className="verdict">
+              {revealScore()}</div>
             </div>
             <button className="start-button" onClick={restartQuiz}>
               Start Again

@@ -26,7 +26,7 @@ function QuizMenu() {
      Start
       </div>
       <footer>
-        <a href="https://github.com/ugoxyz"><SocialIcon className="icon" fgColor="none" bgColor="white" url="https://github.com/ugoxyz" size={10}/>Somebody Made This</a>
+        <a href="https://github.com/ugoxyz"><SocialIcon className="icon" fgColor="none" bgColor="white" url="https://github.com/ugoxyz" width={10}/>Somebody Made This</a>
 
         
       </footer>

@@ -31,7 +31,19 @@ body {
   height: 100%;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   margin:auto
 
+}
+
+.verdict{
+  background: rgba(101, 171, 192, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  margin-top: 20px;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
 }
 
