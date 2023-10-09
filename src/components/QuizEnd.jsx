@@ -83,7 +83,7 @@ function QuizEnd() {
           <div
             style={{
               background: "rgba(163, 241, 250, 0.05)",
-              boxShadow: "0 8px 10px 0 rgba(131, 38, 135, 0.3)",
+              boxShadow: "0 8px 10px 0 rgba(10, 12, 41, 0.3)",
               backdropFilter: "blur(4px)",
               width: "300px",
               height: "300px",
@@ -100,7 +100,7 @@ function QuizEnd() {
               width={width}
               numberOfPieces={200}
               recycle={false}
-              height={100}
+              height={height}
             />
             <div className="speedo">
               <GaugeChart
@@ -114,22 +114,7 @@ function QuizEnd() {
                 animateDuration={10000}
                 cornerRadius={0}
               />
-              {/* <ReactSpeedometer
-                maxValue={40}
-                maxSegmentLabels={0}
-                value={score + 20}
-                needleColor="white"
-                startColor="green"
-                segments={40}
-                endColor="red"
-                width={300}
-                needleTransitionDuration={9999}
-                needleTransition="easeElastic"
-                textColor="white"
-                ringWidth={75}
-                paddingVertical={10}
-                currentValueText={revealScore()}
-              /> */}
+          
               <div className="verdict">{revealScore()}</div>
             </div>
             <button className="start-button" onClick={restartQuiz}>
