@@ -45,12 +45,6 @@ function QuizEnd() {
 
   return (
     <div className="end">
-      <Confetti
-        width={width}
-        numberOfPieces={200}
-        recycle={false}
-        height={height}
-      />
       <ReactCardFlip isFlipped={flip} flipDirection="horizontal">
         <div
           id="side-one flipcard"
@@ -101,15 +95,18 @@ function QuizEnd() {
               cursor: "pointer",
               color: renderColor(),
             }}
-            onClick={() => {
-              setFlip(!flip);
-            }}
           >
+            <Confetti
+              width={width}
+              numberOfPieces={200}
+              recycle={false}
+              height={100}
+            />
             <div className="speedo">
               <GaugeChart
                 arcPadding={0}
                 nrOfLevels={100}
-                percent={(score + 20)/40}
+                percent={(score + 20) / 40}
                 id="gauge-chart1"
                 needleColor="#fff"
                 hideText="false"
@@ -132,8 +129,8 @@ function QuizEnd() {
                 ringWidth={75}
                 paddingVertical={10}
                 currentValueText={revealScore()}
-              /> */}<div className="verdict">
-              {revealScore()}</div>
+              /> */}
+              <div className="verdict">{revealScore()}</div>
             </div>
             <button className="start-button" onClick={restartQuiz}>
               Start Again
