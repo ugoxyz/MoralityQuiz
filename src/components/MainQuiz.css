@@ -1,5 +1,9 @@
+* {
+    box-sizing: border-box;
+}
+
 .main {
-    
+
     background-color: #0E2841;
     display: flex;
     align-items: center;
@@ -7,53 +11,61 @@
     flex-direction: column;
     font-weight: lighter;
     height: 100vh;
-    font-family:'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 768px) {
 
-    .main{
-           display: flex;
+    .main {
+        display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         font-weight: lighter;
+        padding: 1.2em;
         height: 100vh;
-        font-family:'Courier New', Courier, monospace;
-        padding: auto;
+        font-family: 'Courier New', Courier, monospace;
+       width: 100vw;
     }
 
     .left,
-.right {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px;
-    padding: 50px;
-    font-size: 1.2em;
-    border-radius: 10em;
-    min-height: 200px;
-    min-width: 30vw;
-    border: none;
-    color: rgb(255, 228, 253);
+    .right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.2em;
+        font-size: 1em;
+        border-radius: 10em;
+        height: 200px;
+        width: 30vw;
+        background: rgba(250, 180, 185, 0.1);
+        box-shadow: 0 8px 32px 0 rgba(10, 12, 41, 0.3);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+    }
 
-}
-.main-question {
-    width: 90vw;
-    margin-top: 100px;
-    margin-left: 20px;
-    
-    margin-right: 20px;
-    background: rgba(163, 241, 250, 0.25);
-    box-shadow: 0 8px 32px 0 rgba(19, 23, 82, 0.3);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    border-radius: 10px;
-    color: white;
-    padding: 30px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    
-}
+    .question-card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 300px;
+        width: 100vw;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    .main-question {
+        width: 70vw;
+        margin-top: 100px;
+        background: rgba(163, 241, 250, 0.25);
+        box-shadow: 0 8px 32px 0 rgba(19, 23, 82, 0.3);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border-radius: 10px;
+        color: white;
+        padding: 30px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
 }
 
 .question-card {
@@ -64,14 +76,14 @@
     height: 400px;
     width: 400px;
     border-radius: 20px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 
 }
 
 .main-question {
-    width: 100vw;
-    margin-top: 100px;
+    width: 70vw;
+    margin-top: 50px;
     background: rgba(163, 241, 250, 0.25);
     box-shadow: 0 8px 32px 0 rgba(19, 23, 82, 0.3);
     backdrop-filter: blur(4px);
@@ -79,8 +91,8 @@
     border-radius: 10px;
     color: white;
     padding: 30px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
 }
 
 .main-question::before {
@@ -101,32 +113,20 @@
     font-size: 1.2em;
     border-radius: 2em;
     min-height: 200px;
-    min-width: 50vw;
+    min-width: 40vw;
     border: none;
+    background: rgba(250, 180, 185, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(10, 12, 41, 0.3);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     color: rgb(255, 228, 253);
 
 }
 
 .left:hover,
 .right:hover {
-transform: scale(1.05);
-background: rgba(255, 213, 253, 0.2);
-}
-
-.left {
-    background: rgba(250, 180, 185, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(10, 12, 41, 0.3);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-  
-}
-
-.right {
-    background: rgba(250, 180, 185, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(10, 12, 41, 0.3);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
- 
+    transform: scale(1.05);
+    background: rgba(255, 213, 253, 0.2);
 }
 
 .button {
