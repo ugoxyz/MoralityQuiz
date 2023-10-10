@@ -48,7 +48,7 @@ p {
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     cursor: pointer;
-    color: rgb(52, 249, 111);
+    color: cyan;
     font-size: 1rem;
     padding: 30px;
     text-transform: uppercase;
@@ -68,11 +68,17 @@ a {
     color: rgb(43, 255, 234);
 }
 
-footer {
+footer a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     margin-top: auto;
-    height: 50px;
+    height: 100px;
+    
 }
 
 .icon {
     margin: 10px;
+    width: 100px;
 }

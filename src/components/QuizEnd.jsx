@@ -47,7 +47,7 @@ function QuizEnd() {
     <div className="end">
       <ReactCardFlip isFlipped={flip} flipDirection="horizontal">
         <div
-          id="side-one flipcard"
+          id="side-one"
           style={{
             color: renderColor(),
           }}
@@ -87,7 +87,7 @@ function QuizEnd() {
               backdropFilter: "blur(4px)",
               width: "300px",
               height: "300px",
-              margin: "20px",
+              marginBottom: "20px",
               padding: "10px",
               fontSize: "20px",
               fontWeight: "bold",
@@ -100,7 +100,7 @@ function QuizEnd() {
               width={width}
               numberOfPieces={200}
               recycle={false}
-              height={height}
+              height={height/2}
             />
             <div className="speedo">
               <GaugeChart

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { QuizContext } from "../extras/Contexts";
 import "./QuizMenu.css";
-import YinYang from "./yinyang.png"
+import YinYang from "./yinyang.png";
 import { SocialIcon } from "react-social-icons";
 
 function QuizMenu() {
@@ -15,7 +15,7 @@ function QuizMenu() {
         judge but to help you reflect. <br />
         You can take it as many times as you want
       </p> */}
-      
+
       <div
         className="menu"
         onClick={() => {
@@ -23,12 +23,18 @@ function QuizMenu() {
         }}
       >
         <img src={YinYang} alt="logo" width={100} />
-     Start
+        Start
       </div>
       <footer>
-        <a href="https://github.com/ugoxyz"><SocialIcon className="icon" fgColor="none" bgColor="white" url="https://github.com/ugoxyz" width={10}/>Somebody Made This</a>
-
-        
+        <a href="https://github.com/ugoxyz">
+          <SocialIcon
+            className="icon"
+            fgColor="none"
+            bgColor="cyan"
+            url="https://github.com/ugoxyz"
+          />
+          Somebody Made This
+        </a>
       </footer>
     </div>
   );
