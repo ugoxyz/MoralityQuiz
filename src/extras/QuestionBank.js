@@ -1,5 +1,5 @@
 const Questions = [{
-        dilemma: "Your lover is suffering from a chronic illness that gets worse every day. They find a way to tell you they don't want to suffer.",
+        dilemma: "Your lover is suffering from a chronic illness that gets worse every day. They ask for assisted suicide because they don't want to suffer.",
         good: "Watch your loved one live in chronic pain",
         evil: "Help them with a painless transition",
     }, {
@@ -9,7 +9,7 @@ const Questions = [{
     }, 
     
     {
-        dilemma: "Your spouse killed someone in a hit-and-run while driving home from a birthday party you hosted.",
+        dilemma: "Your spouse killed someone in a hit-and-run while driving home from a birthday party.",
         good: "Report them to the police",
         evil: "Help them hide the crime",
     }, {
@@ -51,7 +51,7 @@ const Questions = [{
         good: "Shut your mouth",
         evil: "Accuse your friend",
     }, {
-        dilemma: "The CEO is looking for a stolen laptop, and you overheard an orphan looking for buyers for a fairly-used laptop.",
+        dilemma: "The CEO is looking for a stolen laptop. An orphan from your street just offered you a fairly-used laptop with the company's logo.",
         good: "Report the thief",
         evil: "Keep your mouth shut",
     }, {
@@ -63,7 +63,7 @@ const Questions = [{
         good: "Report the doctor and save the minor",
         evil: "Shut your mouth and save your dad",
     }, {
-        dilemma: "You receive a report that your company is about to scam 1,000 people. But you need the raise and bonus to buy a house and pay for your partner's cancer treatment.",
+        dilemma: "You discover that your company is about to scam thousands of old people. But you need the raise and bonus to buy a house and pay for your partner's cancer treatment.",
         good: "Expose the scam",
         evil: "Say nothing and get rich",
     }, {
